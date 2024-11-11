@@ -2,11 +2,11 @@ package it.unibo.mvc;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.TextField;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,22 +38,23 @@ public class MiniGUI {
         /*
          * Handlers
          */
-        write.addActionListener(new ActionListener() {
+        /*write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 System.out.println(randomGenerator.nextInt());
             }
-        });
+        });*/
 
 
-        
+
         final JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         final JButton write2 = new JButton("Print a random number on standard output on panel");
-        TextField result = new TextField("Result");
-        panel.add(result, BorderLayout.NORTH);
-        panel.add(write2, BorderLayout.NORTH);
-        frame.setContentPane(panel);
+        JTextField result = new JTextField("Result");
+        canvas.add(panel, BorderLayout.CENTER);
+        canvas.add(result, BorderLayout.NORTH);
+        panel.add(write2, BorderLayout.CENTER);
+        frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         
